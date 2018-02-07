@@ -1,0 +1,11 @@
+  <tr>
+    <td width="*">
+      <%= task.done? ? "[X]" : "[ ]" %>
+      <%= task.name %>
+    </td>
+    <td>
+      <%= link_to "Fazer", toggle_task_path(task) %>
+      <%= link_to "Editar", edit_task_path(task) %>
+      <%= link_to "Apagar", task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-small" %>
+    </td>
+  </tr>

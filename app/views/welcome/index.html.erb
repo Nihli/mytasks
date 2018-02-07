@@ -1,0 +1,26 @@
+<h1>MyTasks!</h1>
+
+<%= root_path %>
+
+<% unless notice.nil? %>
+  <%= notice %>
+<% end %>
+
+
+<p>
+  <%= link_to 'Nova lista'.html_safe,
+              new_list_path %>
+  <%= link_to 'Nova tarefa'.html_safe,
+              new_task_path %>
+</p>
+
+<% @lists.each do |list| %>
+  <h4><%= list.name %></h4>
+  <% if list.tasks.empty? %>
+    <p><strong>Nenhuma tarefa nessa lista! :)</strong></p>
+  <% else %>
+    <table>
+      <%= render list.tasks %>
+    </table>
+  <% end %>
+<% end %>
